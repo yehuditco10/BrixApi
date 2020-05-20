@@ -6248,11 +6248,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user1\\Documents\\Yehudit\\Brix\\WebApi_Brix\\WebApi_Brix\\WebApi_Brix.csproj",
+      "projectUniqueName": "C:\\Users\\user1\\Documents\\Yehudit\\Brix\\BrixApi\\WebApi_Brix\\WebApi_Brix\\WebApi_Brix.csproj",
       "projectName": "WebApi_Brix",
-      "projectPath": "C:\\Users\\user1\\Documents\\Yehudit\\Brix\\WebApi_Brix\\WebApi_Brix\\WebApi_Brix.csproj",
+      "projectPath": "C:\\Users\\user1\\Documents\\Yehudit\\Brix\\BrixApi\\WebApi_Brix\\WebApi_Brix\\WebApi_Brix.csproj",
       "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user1\\Documents\\Yehudit\\Brix\\WebApi_Brix\\WebApi_Brix\\obj\\",
+      "outputPath": "C:\\Users\\user1\\Documents\\Yehudit\\Brix\\BrixApi\\WebApi_Brix\\WebApi_Brix\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",

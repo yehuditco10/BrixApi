@@ -9,16 +9,7 @@ namespace WebApi_Brix.BL
     public class Locations
     {
         public static List<Location> locations { get; set; }
-        //public Locations()
-        //{
-        //    locations = new List<Location>
-        //    {
-        //        new Location("Jerusalem",new DateTime(2005, 12, 12),new DateTime(2005, 11, 12),"school","111"),
-        //        new Location("Bney Brak",new DateTime(2004, 12, 12),new DateTime(2004, 11, 12),"park","111"),
-        //        new Location("Bney Brak",new DateTime(2004, 12, 12),new DateTime(2004, 11, 12),"library","111"),
-        //        new Location("Jerusalem",new DateTime(2005, 12, 12),new DateTime(2005, 11, 12),"restaurant","222"),
-        //    };
-        //}
+  
         public static async void LoadLocationsAsync()
         {
             try

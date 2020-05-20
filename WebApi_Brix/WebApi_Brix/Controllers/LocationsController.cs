@@ -61,7 +61,6 @@ namespace WebApi_Brix.Controllers
                 throw;
             }
         }
-
     }
 
 
