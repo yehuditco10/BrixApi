@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi_Brix.Models;
-using WebApi_Brix.BL;
+using WebApi_Brix.BLL;
+using Newtonsoft.Json;
+using static WebApi_Brix.Models.Data;
+
 namespace WebApi_Brix.Controllers
 {
     [Route("api/[controller]")]
@@ -17,15 +20,12 @@ namespace WebApi_Brix.Controllers
         {
             try
             {
-                Locations.LoadLocationsAsync();
-                //to do async ??
                 var results = await Locations.GetLocationsAsync();
                 return results;
             }
             catch (Exception)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "data failed");
-                //return BadRequest("get location failed");
             }
 
         }
@@ -41,19 +41,17 @@ namespace WebApi_Brix.Controllers
             catch (Exception)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "data failed");
-                //return BadRequest("get location failed");
             }
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Location>>> Post(List<Location> newLocation)
+        public async Task<ActionResult<List<Location>>> Post(Location[] newLocation)
         {
             try
             {
-                //if i wont send patientId
-                //if (id == "")
-                //    id = newLocation[0].patientId;
-                var results = await Locations.AddLocationsAsync(newLocation, "111");
+                if (newLocation.Count() > 0)
+                    return BadRequest("location is null");
+                var results = await Locations.AddLocationsAsync(newLocation[0].patientId, newLocation.ToList());
                 return results;
             }
             catch (Exception)
@@ -61,7 +59,6 @@ namespace WebApi_Brix.Controllers
                 throw;
             }
         }
-
     }
 
 
