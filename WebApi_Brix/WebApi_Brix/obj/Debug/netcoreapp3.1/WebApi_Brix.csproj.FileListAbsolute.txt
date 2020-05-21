@@ -187,4 +187,8 @@ C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.csproj.CopyComplete
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.dll
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.pdb
+C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\bin\Debug\netcoreapp3.1\System.Web.Cors.dll
+C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\bin\Debug\netcoreapp3.1\System.Web.Http.Cors.dll
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.MvcApplicationPartsAssemblyInfo.cache

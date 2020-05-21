@@ -14,6 +14,7 @@ namespace WebApi_Brix.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     //[EnableCors("MyPolicy")]
     //[EnableCors("AllowAllHeaders")]
     public class LocationsController : ControllerBase
