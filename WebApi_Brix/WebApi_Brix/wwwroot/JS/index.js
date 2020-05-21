@@ -1,5 +1,4 @@
-﻿// import $ from 'jquery';
-let locations = [
+﻿let locations = [
     {
         startDate: '2020.05.05 12:00:22',
         endDate: '2020.06.05 12:00:22',
@@ -34,6 +33,8 @@ let locations = [
         patientId: '333'
     }
 ];
+
+const BASICURL = "https://localhost:44389/api/"
 let added = false;
 const searchBottun = document.getElementById('search');
 searchBottun.addEventListener("click", getLocationByPatientId);
@@ -155,7 +156,6 @@ function initList(listToInit) {
     document.getElementById('list').innerHTML = '';
     let sorted = sortDates(listToInit);
     sorted.forEach(element => {
-
         let item = document.createElement("li", element);
         item.innerText = element.startDate + ' ' + element.endDate + ' | ' + element.city + ' | ' + element.location
         document.getElementById('list').appendChild(item);
@@ -163,13 +163,7 @@ function initList(listToInit) {
 }
 function filterCity() {
     let selected = this.value;
-    // console.log("selected city ", selected);
-    let match = '';
-    if (selected !== '' && selected !== 'All') {
-        match = locations.filter(element => element.city === selected);
-    }
-    else
-        match = locations;
+    let match = getListFromServer(selected);
     initList(match);
 }
 function compareDates(a, b) {
@@ -178,33 +172,40 @@ function compareDates(a, b) {
 function sortDates(listToSort) {
     return listToSort.sort(compareDates);
 }
-
-
 function getLocationByPatientId() {
-    var xhr = new XMLHttpRequest();
-    cleanTable();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            cleanTable();
-            const jLocations = JSON.parse(this.responseText);
-            if (jLocations.length > 0) {
-                patientLocations.splice(0, patientLocations.length);
-                patientLocations.push(...jLocations);
-                createPathTable(patientLocations);
+    const patientid = document.getElementById('patientID').value;
+    if (patientid === "" || patientid === null) {
+        cleanTable();
+        added = false;
+        document.getElementById("addLocation").innerHTML = "";
+        document.getElementById("saveLocations").innerHTML = "";
+    }
+    else {
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                cleanTable();
+                const jLocations = JSON.parse(this.responseText);
+                if (jLocations.length > 0) {
+                    patientLocations.splice(0, patientLocations.length);
+                    patientLocations.push(...jLocations);
+                    createPathTable(patientLocations);
+                }
+                if (added === false)
+                    addAddingOption();
             }
-
-            if (added === false)
-                addAddingOption();
-        }
-        // if(this.status===204){
-        //     cleanTable();
-        // }
-    };
-    const url = "https://localhost:44389/api/locations/" + document.getElementById('patientID').value;
-    xhr.open("GET", url, true);
-    xhr.send();
+            if (this.status === 404 || this.response === null) {
+                cleanTable();
+                if (added === false) {
+                    addAddingOption();
+                }
+            }
+        };
+        const url = BASICURL + "locations/" + patientid;
+        xhr.open("GET", url, true);
+        xhr.send();
+    }
 }
-
 function saveChanges() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -214,16 +215,33 @@ function saveChanges() {
             const id = document.getElementById('patientID').value;
             locations = locations.filter(item => (item.patientId != id));
             locations.push(...jLocations);
-            console.log(locations);
         }
     };
-    xhttp.open("POST", "https://localhost:44389/api/locations", true);
-    //xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.open("POST", BASICURL + "locations", true);
     xhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
     xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xhttp.setRequestHeader("Referrer-Policy","origin");
     xhttp.send(JSON.stringify(patientLocations));
 }
+getListFromServer();
+function getListFromServer(city = "") {
+    console.log("start azax request.");
+    if (city != "") city = "?city=" + city;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            const jLocations = JSON.parse(this.responseText);
+            if (jLocations.length > 0) {
+                patientLocations.splice(0, patientLocations.length);
+                patientLocations.push(...jLocations)
+                initList(jLocations)
+            }
+        }
+    };
+    xhttp.open("GET", BASICURL + "locations/GetByCity" + city, true);
+    xhttp.send();
+}
+
+
 //
 // "start": "webpack-dev-server --open --proxy-config proxy.json"
 

@@ -40,7 +40,7 @@ table tr td:last-child {
 }
 
 input {
-    width: 16vw;
+    width: 15.9vw;
     border-color: #5099eff2;
     border-style: solid;
     border-width: thin;
@@ -49,7 +49,7 @@ input {
 }
 
 #addPath {
-    width: 6vw;
+    width: 5.8vw;
     background-color: #5099eff2;
     color: white;
 }
@@ -65,4 +65,8 @@ h1 {
 #saveLocations{
     margin-top: 3vh;
     margin-left: 29vw;
+}
+#save {
+    background-color: #5099eff2;
+    color: white;
 }

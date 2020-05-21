@@ -14,18 +14,26 @@ namespace WebApi_Brix.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+
     //[EnableCors("MyPolicy")]
     //[EnableCors("AllowAllHeaders")]
     public class LocationsController : ControllerBase
     {
+
+        [Route("GetByCity")]
         [HttpGet]
-        public async Task<ActionResult<List<Location>>> Get()
+        public async Task<ActionResult<List<Location>>> GetByCity(string city = null)
         {
             try
             {
-                var results = await Locations.GetLocationsAsync();
-                return results;
+                var list = await Locations.GetLocationsAsync();
+                var results = new List<Location>();
+                if (city != null && city != "All" && city != "")
+                {
+                    results = list.Where(c => c.city == city).ToList();
+                    return results;
+                }
+                return list;
             }
             catch (Exception)
             {
@@ -33,13 +41,17 @@ namespace WebApi_Brix.Controllers
             }
 
         }
-
         [HttpGet("{patienId}")]
         public async Task<ActionResult<List<Location>>> Get(string patienId)
         {
             try
             {
                 var results = await Locations.GetLocationsByPatientAsync(patienId);
+                if (results == null || results.Count() <= 0)
+                {
+                    return this.StatusCode(StatusCodes.Status404NotFound, "not found locations for this patient");
+
+                }
                 return results;
             }
             catch (Exception)
