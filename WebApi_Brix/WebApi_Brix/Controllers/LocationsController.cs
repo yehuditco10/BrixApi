@@ -8,11 +8,14 @@ using WebApi_Brix.Models;
 using WebApi_Brix.BLL;
 using Newtonsoft.Json;
 using static WebApi_Brix.Models.Data;
+using Microsoft.AspNetCore.Cors;
 
 namespace WebApi_Brix.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[EnableCors("MyPolicy")]
+    //[EnableCors("AllowAllHeaders")]
     public class LocationsController : ControllerBase
     {
         [HttpGet]
@@ -49,7 +52,7 @@ namespace WebApi_Brix.Controllers
         {
             try
             {
-                if (newLocation.Count() > 0)
+                if (newLocation.Count() <= 0)
                     return BadRequest("location is null");
                 var results = await Locations.AddLocationsAsync(newLocation[0].patientId, newLocation.ToList());
                 return results;
@@ -59,6 +62,20 @@ namespace WebApi_Brix.Controllers
                 throw;
             }
         }
+
+
+        //[HttpPost]
+        //public async Task<ActionResult> Post([FromBody] string fname)
+        //{
+        //    try
+        //    {
+        //        return Ok(fname);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
     }
 
 

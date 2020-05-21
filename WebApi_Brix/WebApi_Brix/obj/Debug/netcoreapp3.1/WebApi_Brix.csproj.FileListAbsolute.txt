@@ -181,10 +181,10 @@ C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\bin\Debug\
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.csprojAssemblyReference.cache
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\staticwebassets\WebApi_Brix.StaticWebAssets.Manifest.cache
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\staticwebassets\WebApi_Brix.StaticWebAssets.xml
-C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.AssemblyInfoInputs.cache
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.AssemblyInfo.cs
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.RazorTargetAssemblyInfo.cache
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.csproj.CopyComplete
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.dll
 C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.pdb
+C:\Users\user1\Documents\Yehudit\Brix\BrixApi\WebApi_Brix\WebApi_Brix\obj\Debug\netcoreapp3.1\WebApi_Brix.MvcApplicationPartsAssemblyInfo.cache
